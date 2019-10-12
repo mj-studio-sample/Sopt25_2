@@ -47,7 +47,11 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun navigateMainActivity() {
-        Intent(this,MainActivity::class.java).apply { startActivity(this) }
+        Intent(this,MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(this)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
