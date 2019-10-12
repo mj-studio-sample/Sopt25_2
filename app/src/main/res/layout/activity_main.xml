@@ -4,7 +4,7 @@
     <data>
         <variable
             name="activity"
-            type="happy.mjstudio.sopt25_2.MainActivity" />
+            type="happy.mjstudio.sopt25_2.view.main.MainActivity" />
 
     </data>
 
@@ -15,7 +15,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".view.main.MainActivity">
 
 
         <androidx.recyclerview.widget.RecyclerView

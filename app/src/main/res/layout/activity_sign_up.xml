@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.signin.SignInActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        app:layout_constraintGuide_percent="0.3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/guideLine"/>
+
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/name"
+        app:layout_constraintTop_toBottomOf="@id/guideLine"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintWidth_percent="0.8"
+        android:hint="Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:singleLine="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/id"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:hint="ID"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:singleLine="true"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        android:id="@+id/password"
+        app:layout_constraintTop_toBottomOf="@id/id"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:singleLine="true"
+        android:layout_marginTop="16dp"
+        android:hint="Password Check"
+        android:id="@+id/passwordCheck"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginTop="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordCheck"
+        android:id="@+id/signup"
+        android:padding="4dp"
+        android:text="회원가입"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

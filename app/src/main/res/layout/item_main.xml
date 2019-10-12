@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="happy.mjstudio.sopt25_2.GitRepoItem" />
+            type="happy.mjstudio.sopt25_2.data.entity.GitRepoItem" />
 
     </data>
 

@@ -1,4 +1,4 @@
-package happy.mjstudio.sopt25_2
+package happy.mjstudio.sopt25_2.common
 
 import android.view.View
 import androidx.databinding.BindingAdapter

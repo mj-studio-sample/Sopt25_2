@@ -38,4 +38,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    // AndroidX (based on koin-android)
+// Koin AndroidX Scope feature
+    compile "org.koin:koin-androidx-scope:2.0.1"
+// Koin AndroidX ViewModel feature
+    compile "org.koin:koin-androidx-viewmodel:2.0.1"
+// Koin AndroidX Experimental features
+    compile "org.koin:koin-androidx-ext:2.0.1"
 }
