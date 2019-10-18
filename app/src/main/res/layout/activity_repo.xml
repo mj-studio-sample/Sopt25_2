@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="activity"
-            type="happy.mjstudio.sopt25_2.view.main.MainActivity" />
+            name="vm"
+            type="happy.mjstudio.sopt25_2.presentation.repo.RepoViewModel" />
 
     </data>
 
@@ -15,12 +15,12 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.main.MainActivity">
+        tools:context=".presentation.repo.RepoActivity">
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:overScrollMode="never"
-            app:recyclerview_main_repo_items="@{activity.items}"
+            app:recyclerview_main_repo_items="@{vm.repos}"
             android:id="@+id/recycler_view"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"

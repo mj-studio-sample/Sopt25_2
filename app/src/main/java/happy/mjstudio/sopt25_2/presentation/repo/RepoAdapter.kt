@@ -1,4 +1,4 @@
-package happy.mjstudio.sopt25_2.view.main
+package happy.mjstudio.sopt25_2.presentation.repo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import happy.mjstudio.sopt25_2.BR
-import happy.mjstudio.sopt25_2.data.entity.GitRepoItem
+import happy.mjstudio.sopt25_2.domain.entity.GitRepoItem
 import happy.mjstudio.sopt25_2.databinding.ItemMainBinding
 
 /**

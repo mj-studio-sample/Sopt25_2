@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.signin.SignInActivity">
+        <activity android:name=".presentation.signin.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +20,13 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".view.signup.SignUpActivity" />
 
-        <activity android:name=".view.main.MainActivity">
+        <activity android:name=".presentation.signup.SignUpActivity" />
 
-        </activity>
+        <activity android:name=".presentation.repo.RepoActivity"/>
+
+        <activity android:name=".presentation.profile.ProfileActivity"/>
+
     </application>
 
 </manifest>

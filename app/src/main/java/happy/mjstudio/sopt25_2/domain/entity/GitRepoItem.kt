@@ -1,4 +1,4 @@
-package happy.mjstudio.sopt25_2.data.entity
+package happy.mjstudio.sopt25_2.domain.entity
 
 /**
  * Created by mj on 12, October, 2019
