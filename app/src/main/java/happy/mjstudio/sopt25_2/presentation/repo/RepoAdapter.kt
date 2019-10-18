@@ -7,18 +7,13 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import happy.mjstudio.sopt25_2.BR
+import happy.mjstudio.sopt25_2.databinding.ItemRepoBinding
 import happy.mjstudio.sopt25_2.domain.entity.GitRepoItem
-import happy.mjstudio.sopt25_2.databinding.ItemMainBinding
 
 /**
  * Created by mj on 12, October, 2019
  */
-
-/**
- * Created by mj on 12, October, 2019
- */
-
-class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
+class RepoAdapter : RecyclerView.Adapter<RepoAdapter.MainHolder>() {
 
 
     private val diff = object : DiffUtil.ItemCallback<GitRepoItem>() {
@@ -40,7 +35,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemMainBinding.inflate(inflater, parent, false)
+        val binding = ItemRepoBinding.inflate(inflater, parent, false)
 
         return MainHolder(binding)
     }
@@ -50,7 +45,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
     override fun onBindViewHolder(holder: MainHolder, position: Int) = holder.bind(differ.currentList[position])
 
 
-    inner class MainHolder(private val binding: ItemMainBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MainHolder(private val binding: ItemRepoBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Any) {
             binding.setVariable(BR.item, item)
             binding.executePendingBindings()
@@ -58,9 +53,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainHolder>() {
     }
 }
 
-@BindingAdapter("app:recyclerview_main_repo_items")
+@BindingAdapter("app:recyclerview_repo_items")
 fun RecyclerView.setItems(items: List<GitRepoItem>) {
-    (adapter as? MainAdapter)?.run {
+    (adapter as? RepoAdapter)?.run {
         this.submitItems(items)
     }
 }

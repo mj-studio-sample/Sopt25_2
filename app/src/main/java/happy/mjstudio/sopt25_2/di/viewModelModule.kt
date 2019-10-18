@@ -1,5 +1,6 @@
 package happy.mjstudio.sopt25_2.di
 
+import happy.mjstudio.sopt25_2.domain.entity.Profile
 import happy.mjstudio.sopt25_2.presentation.profile.ProfileViewModel
 import happy.mjstudio.sopt25_2.presentation.repo.RepoViewModel
 import happy.mjstudio.sopt25_2.presentation.signin.SignInViewModel
@@ -15,5 +16,5 @@ val viewModelModule = module {
     viewModel { SignInViewModel(get()) }
     viewModel { SignUpViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
-    viewModel { RepoViewModel() }
+    viewModel { (profile : Profile) -> RepoViewModel(profile,get()) }
 }

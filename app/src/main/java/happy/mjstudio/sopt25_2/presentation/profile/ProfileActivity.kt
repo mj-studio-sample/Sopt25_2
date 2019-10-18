@@ -1,11 +1,14 @@
 package happy.mjstudio.sopt25_2.presentation.profile
 
-import android.content.Intent
+import android.app.ActivityOptions
 import android.os.Bundle
+import android.util.Pair
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import happy.mjstudio.sopt25_2.common.widget.LinearItemDecoration
 import happy.mjstudio.sopt25_2.databinding.ActivityProfileBinding
-import happy.mjstudio.sopt25_2.domain.entity.Follower
+import happy.mjstudio.sopt25_2.domain.entity.Profile
 import happy.mjstudio.sopt25_2.presentation.repo.RepoActivity
 import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -38,6 +41,12 @@ class ProfileActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun initView() {
+        mBinding.toolbar.apply {
+            this.setNavigationOnClickListener {
+
+            }
+        }
+
         mBinding.recyclerView.apply {
             adapter = FollowerAdapter(this@ProfileActivity).apply {
 
@@ -47,10 +56,27 @@ class ProfileActivity : AppCompatActivity(), CoroutineScope {
                     }
                 }
             }
+            addItemDecoration(LinearItemDecoration(20))
         }
     }
-    private fun navigateRepoActivity(follower : Follower) {
-        Intent(this,RepoActivity::class.java).apply { startActivity(this) }
+    private fun navigateRepoActivity(profile : Profile) {
+        kotlin.runCatching {
+            val idx = mViewModel.followers.value?.indexOfFirst { it.id === profile.id }!!
+            val view = (mBinding.recyclerView.findViewHolderForLayoutPosition(idx) as FollowerAdapter.FollowerHolder).binding.image
+            val transitionName = "image$idx"
+            val pair = Pair<View, String>(view, transitionName)
+
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(this, pair).toBundle()
+
+
+            RepoActivity.newIntent(this, profile, transitionName)
+                .apply { startActivity(this, bundle) }
+        }.onFailure {
+            RepoActivity.newIntent(this, profile, "image1")
+                .apply { startActivity(this) }
+        }
+
+
     }
 
     private fun observeViewModel() {

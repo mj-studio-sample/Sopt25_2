@@ -1,6 +1,6 @@
 package happy.mjstudio.sopt25_2.data.repository
 
-import happy.mjstudio.sopt25_2.domain.entity.Follower
+import happy.mjstudio.sopt25_2.domain.entity.Profile
 import happy.mjstudio.sopt25_2.domain.repository.ProfileRepository
 
 /**
@@ -9,16 +9,20 @@ import happy.mjstudio.sopt25_2.domain.repository.ProfileRepository
 
 class ProfileRepositoryImpl : ProfileRepository {
 
-    override suspend fun listFollowers(): List<Follower> {
+    override suspend fun getMyProfile(): Profile {
+        return  Profile("mym0404","MJ Studio")
+    }
+
+    override suspend fun listFollowers(): List<Profile> {
         return listOf(
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio"),
-            Follower("mym0404","MJ Studio")
+            Profile("mym04041","MJ Studio"),
+            Profile("mym04042","MJ Studio"),
+            Profile("mym04043","MJ Studio"),
+            Profile("mym04044","MJ Studio"),
+            Profile("mym04045","MJ Studio"),
+            Profile("mym04046","MJ Studio"),
+            Profile("mym04047","MJ Studio"),
+            Profile("mym04048","MJ Studio")
         )
     }
 }

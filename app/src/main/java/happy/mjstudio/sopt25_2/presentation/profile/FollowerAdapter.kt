@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import happy.mjstudio.sopt25_2.databinding.ItemFollowerBinding
-import happy.mjstudio.sopt25_2.domain.entity.Follower
+import happy.mjstudio.sopt25_2.domain.entity.Profile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -21,21 +21,21 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 class FollowerAdapter(private val scope : CoroutineScope) : RecyclerView.Adapter<FollowerAdapter.FollowerHolder>() {
 
-    val clickEvent : BroadcastChannel<Follower> = BroadcastChannel(Channel.CONFLATED)
+    val clickEvent : BroadcastChannel<Profile> = BroadcastChannel(Channel.CONFLATED)
 
-    private val diff = object : DiffUtil.ItemCallback<Follower>() {
-        override fun areItemsTheSame(oldItem: Follower, newItem: Follower): Boolean {
+    private val diff = object : DiffUtil.ItemCallback<Profile>() {
+        override fun areItemsTheSame(oldItem: Profile, newItem: Profile): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Follower, newItem: Follower): Boolean {
+        override fun areContentsTheSame(oldItem: Profile, newItem: Profile): Boolean {
             return oldItem == newItem
         }
     }
 
-    private val differ = AsyncListDiffer<Follower>(this,diff)
+    private val differ = AsyncListDiffer<Profile>(this,diff)
 
-    fun submitItems(items : List<Follower>) {
+    fun submitItems(items : List<Profile>) {
         differ.submitList(items)
     }
 
@@ -52,7 +52,7 @@ class FollowerAdapter(private val scope : CoroutineScope) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: FollowerHolder, position: Int) = holder.bind(differ.currentList[position])
 
 
-    inner class FollowerHolder(private val binding: ItemFollowerBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class FollowerHolder(val binding: ItemFollowerBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
                 scope.launch {
@@ -70,7 +70,7 @@ class FollowerAdapter(private val scope : CoroutineScope) : RecyclerView.Adapter
 }
 
 @BindingAdapter("app:recyclerview_follower_items")
-fun RecyclerView.setItems(items: List<Follower>) {
+fun RecyclerView.setItems(items: List<Profile>) {
     (adapter as? FollowerAdapter)?.run {
         this.submitItems(items)
     }

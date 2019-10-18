@@ -24,8 +24,8 @@ class SignInViewModel(private val userRepository: UserRepository) : ViewModel() 
     //endregion
 
     //region DATA
-    val id: MutableLiveData<String> = MutableLiveData("")
-    val pw: MutableLiveData<String> = MutableLiveData("")
+    val id: MutableLiveData<String> = MutableLiveData("mym0404@gmail.com")
+    val pw: MutableLiveData<String> = MutableLiveData("1234")
     //endregion
 
     //region EVENT
@@ -46,20 +46,23 @@ class SignInViewModel(private val userRepository: UserRepository) : ViewModel() 
 
     private fun signIn() {
         viewModelScope.launch {
-            val result = kotlin.runCatching {
+            kotlin.runCatching {
                 withContext(Dispatchers.IO + SupervisorJob()) {
                     userRepository.login(
                         id.value!!,
                         pw.value!!
                     )
                 }
+            }.onSuccess {
+                if(it) {
+                    _navigateProfile.value = Once(Unit)
+                }else {
+                    _alertMsg.value = Once("로그인에 실패했습니다.")
+                }
+            }.onFailure {
+                _alertMsg.value = Once("로그인에 실패했습니다. error : $it")
             }
 
-            if (result.isSuccess) {
-                _navigateProfile.value = Once(Unit)
-            } else {
-                _alertMsg.value = Once("로그인에 실패했습니다. error : ${result.exceptionOrNull()}")
-            }
         }
     }
 

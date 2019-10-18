@@ -7,7 +7,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorPrimary</item>
-        <item name="colorOnBackground">#fff</item>
 
         <item name="colorOnPrimary">#fff</item>
         <item name="colorOnSecondary">#fff</item>

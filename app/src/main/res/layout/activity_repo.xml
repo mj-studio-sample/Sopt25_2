@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -8,24 +10,102 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#000"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.repo.RepoActivity">
-
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:overScrollMode="never"
-            app:recyclerview_main_repo_items="@{vm.repos}"
             android:id="@+id/recycler_view"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            app:recyclerview_repo_items="@{vm.repos}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                app:scrimVisibleHeightTrigger="200dp"
+                app:scrimAnimationDuration="400"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="56dp"
+                app:contentScrim="@color/colorPrimaryDark"
+
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways"
+                app:titleEnabled="false">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_collapseMode="parallax"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_marginTop="56dp"
+                    android:background="@color/colorPrimaryDark">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:transitionName="image"
+                        android:id="@+id/image"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/uncle"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:text="@{vm.profile.id}"
+                        android:id="@+id/myIdLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/image"
+                        tools:text="mym0404" />
+
+                    <TextView
+                        android:text="@{vm.profile.name}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="32dp"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="@id/myIdLabel"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/myIdLabel"
+                        tools:text="MJ Studio" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    app:navigationIcon="@drawable/ic_back"
+                    android:id="@+id/toolbar"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_collapseMode="pin"
+                    app:menu="@menu/menu_profile_toolbar" />
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
