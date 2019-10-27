@@ -17,14 +17,17 @@ fun View.setVisibilityBinding(visible : Boolean) {
 }
 
 @BindingAdapter("imageSrc")
-fun ImageView.setImageBinding(src : String) {
+fun ImageView.setImageBinding(src : String?) {
+    src ?: return
     Glide.with(this).load(src).into(this)
 }
 @BindingAdapter("imageSrc")
-fun ImageView.setImageBinding(@DrawableRes src : Int) {
+fun ImageView.setImageBinding(@DrawableRes src : Int?) {
+    src ?: return
     Glide.with(this).load(src).into(this)
 }
 @BindingAdapter("imageSrc")
-fun ImageView.setImageBinding(src : Uri) {
+fun ImageView.setImageBinding(src : Uri?) {
+    src ?: return
     Glide.with(this).load(src).into(this)
 }

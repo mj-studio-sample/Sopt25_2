@@ -50,11 +50,11 @@
                     android:background="@color/colorPrimaryDark">
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        imageSrc="@{vm.myProfile.avatarUrl}"
                         android:id="@+id/image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="16dp"
-                        android:src="@drawable/uncle"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

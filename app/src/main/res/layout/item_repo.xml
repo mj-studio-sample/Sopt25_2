@@ -63,7 +63,7 @@
 
             <ImageView
                 android:visibility="@{item.languageColor != null}"
-                android:tint="@{item.languageColor}"
+                android:tint="@{item.languageColor ?? @android:color/transparent }"
 
                 android:id="@+id/circle"
                 android:layout_marginBottom="12dp"

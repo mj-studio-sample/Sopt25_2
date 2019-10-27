@@ -8,5 +8,5 @@ data class GitRepoItem(
     val title : String,
     val desc : String,
     val language : String?,
-    val languageColor : Int?
+    val languageColor : Int? = android.R.color.black
 )
