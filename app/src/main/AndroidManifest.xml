@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="happy.mjstudio.sopt25_2">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".application.MJApplication"
         android:allowBackup="true"

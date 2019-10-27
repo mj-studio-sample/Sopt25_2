@@ -24,8 +24,8 @@ class SignInViewModel(private val userRepository: UserRepository) : ViewModel() 
     //endregion
 
     //region DATA
-    val id: MutableLiveData<String> = MutableLiveData("mym0404@gmail.com")
-    val pw: MutableLiveData<String> = MutableLiveData("1234")
+    val id: MutableLiveData<String> = MutableLiveData("mym0404")
+    val pw: MutableLiveData<String> = MutableLiveData("12341234")
     //endregion
 
     //region EVENT
